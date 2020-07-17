@@ -1,3 +1,4 @@
+include ':rabbitMQ'
 include ':mvvm'
 include ':app'
 rootProject.name = "need"
