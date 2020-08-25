@@ -109,7 +109,34 @@ public abstract class BaseFragment<T extends ViewDataBinding, VM extends BaseVie
         }
     }
 
+    public VM getModel() {
+        return viewModel;
+    }
+
     public T getBinding() {
         return binding;
+    }
+
+    //*******************fragment*****************//
+    public void replaceFragment(int containerId, RootFragment fragment) {
+        getChildFragmentManager()
+                .beginTransaction()
+                .replace(containerId, fragment)
+                .commitAllowingStateLoss();
+    }
+
+    public void replaceFragmentWithStack(int containerId, RootFragment fragment) {
+        getChildFragmentManager()
+                .beginTransaction()
+                .replace(containerId, fragment)
+                .addToBackStack(fragment.getClass().getCanonicalName())
+                .commitAllowingStateLoss();
+    }
+
+    public void removeFragment(RootFragment fragment) {
+        getChildFragmentManager()
+                .beginTransaction()
+                .remove(fragment)
+                .commitAllowingStateLoss();
     }
 }

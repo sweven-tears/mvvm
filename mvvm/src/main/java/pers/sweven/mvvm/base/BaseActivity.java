@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import pers.sweven.mvvm.common.ActivityManager;
 import pers.sweven.mvvm.dialog.LoadingDialog;
@@ -65,16 +62,16 @@ public abstract class BaseActivity<T extends ViewDataBinding, VM extends BaseVie
     }
 
     /**
+     * @return layoutId
+     */
+    protected abstract int bindLayout();
+
+    /**
      * 初始化上一个activity传递的 bundle
      *
      * @param bundle 。
      */
     protected abstract void initParams(Bundle bundle);
-
-    /**
-     * @return layoutId
-     */
-    protected abstract int bindLayout();
 
     /**
      * 初始化组件
@@ -114,6 +111,10 @@ public abstract class BaseActivity<T extends ViewDataBinding, VM extends BaseVie
         }
     }
 
+    public VM getModel() {
+        return viewModel;
+    }
+
     public T getBinding() {
         return binding;
     }
@@ -134,15 +135,6 @@ public abstract class BaseActivity<T extends ViewDataBinding, VM extends BaseVie
     }
 
     //*******************fragment*****************//
-    private List<RootFragment> fragments = new ArrayList<>();
-    private RootFragment currentFragment = null;
-    private int currentIndex = 0;
-    private int fragmentId;
-
-    public void initFragment(RootFragment... fragment) {
-        fragments.addAll(Arrays.asList(fragment));
-    }
-
     public void replaceFragment(int containerId, RootFragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
