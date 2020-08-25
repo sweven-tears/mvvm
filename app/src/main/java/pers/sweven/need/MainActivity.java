@@ -21,7 +21,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
     }
 
     @Override
-    protected void initData() {
+    protected void initViews() {
         showLoadingDialog();
         new Timer().schedule(new TimerTask() {
             @Override
@@ -29,5 +29,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
                 dismissLoadingDialog();
             }
         }, 1000 * 10);
+    }
+
+    @Override
+    protected void doBusiness() {
+
     }
 }

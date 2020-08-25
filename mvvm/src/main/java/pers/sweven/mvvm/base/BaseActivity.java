@@ -33,7 +33,8 @@ public abstract class BaseActivity<T extends ViewDataBinding, VM extends BaseVie
             binding = DataBindingUtil.setContentView(this, bindLayout());
         }
         viewModel = initModel();
-        initData();
+        initViews();
+        doBusiness();
         initObservable();
     }
 
@@ -76,7 +77,12 @@ public abstract class BaseActivity<T extends ViewDataBinding, VM extends BaseVie
     /**
      * 初始化组件
      */
-    protected abstract void initData();
+    protected abstract void initViews();
+
+    /**
+     * 逻辑处理
+     */
+    protected abstract void doBusiness();
 
     /**
      * 初始化观察者
