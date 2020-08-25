@@ -43,6 +43,7 @@ public abstract class BaseFragment<T extends ViewDataBinding, VM extends BaseVie
         viewModel = initViewModel();
         initParams();
         initViews();
+        onBusiness();
         initObservable();
     }
 
@@ -93,6 +94,8 @@ public abstract class BaseFragment<T extends ViewDataBinding, VM extends BaseVie
     protected abstract void initParams();
 
     protected abstract void initViews();
+
+    protected abstract void onBusiness();
 
     protected void toastError(Throwable throwable) {
         if (throwable == null) return;
