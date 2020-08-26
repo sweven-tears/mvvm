@@ -154,7 +154,7 @@ public abstract class BaseAdapter<Bean, V extends ViewDataBinding> extends Recyc
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder<V> holder, int i) {
         Bean bean = list.get(i);
-        holder.itemView.setTag(i, bean);
+        holder.itemView.setTag(bean);
         onBindData(bean, holder);
     }
 
