@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pers.sweven.mvvm.common.OnClickItemListener;
@@ -19,7 +20,7 @@ import pers.sweven.mvvm.common.OnClickItemListener;
  */
 public abstract class BaseAdapter<Bean, V extends ViewDataBinding> extends RecyclerView.Adapter<BaseViewHolder<V>> {
     private Context context;
-    private List<Bean> list;
+    private List<Bean> list = new ArrayList<>();
 
     private LayoutInflater inflater;
     private V binding;
