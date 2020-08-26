@@ -126,6 +126,9 @@ public abstract class BaseAdapter<Bean, V extends ViewDataBinding> extends Recyc
     @NonNull
     @Override
     public BaseViewHolder<V> onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        if (inflater == null) {
+            inflater = LayoutInflater.from(viewGroup.getContext());
+        }
         binding = DataBindingUtil.inflate(inflater, bindLayout(), null, false);
         BaseViewHolder<V> holder = new BaseViewHolder<>(binding);
         if (onClickItemListener != null) {
