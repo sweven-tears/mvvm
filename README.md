@@ -2,6 +2,16 @@
 搭建mvvm框架
 ## 1.build.gradle(Module:app)
 中需要添加的代码：
+android {
+```
+    buildFeatures {
+        dataBinding = true
+        // for view binding (非必选):
+        viewBinding = true
+    }
+```
+......
+}
 ```
     implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.2'
     implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.2'
